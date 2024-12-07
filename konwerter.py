@@ -9,6 +9,7 @@ def safe_search(pattern, text):
 
 def parse_email(email_content):
     data_ur = safe_search(r"Data urodzenia\s+(.*)", email_content)
+    data_ur = data_ur.replace("r.", "").replace("r", "")
     wiek = data_ur[-2:]
     wiek = str(25 - int(wiek))+" lat"
     data = {
